@@ -67,7 +67,7 @@ docker run -d -p 5000:5000 \
   -e DISABLE_URL_CHECK=false \
   -e BASE_PATH='' \
   -e PP_LOCAL_WORDLIST=/app/custom_wordlist.txt \
-  -v "/path/to/italian.txt:/app/custom_wordlist.txt" \
+  -v "A:\german.txt:/app/custom_wordlist.txt" \
   4ss078/shieldkey:latest
 ```
 
