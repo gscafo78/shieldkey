@@ -1,8 +1,9 @@
 services:
   shieldkey:
+    image: 4ss078/shieldkey:latest
     build:
-      context: .
-      dockerfile: build/Dockerfile
+      context: ../.
+      dockerfile: docker/build/Dockerfile
     container_name: shieldkey
     ports:
       - "5000:5000"
