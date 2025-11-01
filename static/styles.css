@@ -97,6 +97,7 @@ h1 {
     border: 2px solid var(--accent-color-1);
     width: 100%;
     max-width: 320px;
+    overflow-x: auto;
 }
 
 #password:focus {
@@ -543,18 +544,6 @@ footer a:hover {
         padding: 10px;
         font-size: 12px;
         margin-top: auto;
-    }
-
-    .parent {
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(5, auto);
-        gap: 5px;
-    }
-
-    .multipwcp0, .multipwcp1, .multipwcp2, .multipwcp3, .multipwcp4 {
-        grid-column: 1 / -1;
-        border-radius: 0 0 8px 8px !important;
-        margin: 0;
     }
 }
 
