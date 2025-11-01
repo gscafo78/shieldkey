@@ -12,8 +12,8 @@
 }
 
 html {
-    overflow: hidden;
-    overflow: -moz-hidden-unscrollable;
+    overflow-x: auto;
+    overflow-y: auto;
 }
 
 body {
@@ -34,7 +34,10 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin-bottom: 130px;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    margin-bottom: 80px;
 }
 
 h1 {
@@ -47,7 +50,8 @@ h1 {
     display: flex;
     align-items: center;
     gap: 10px;
-    width: 320px;
+    width: 100%;
+    max-width: 320px;
 }
 
 #lengthSlider,
@@ -81,7 +85,8 @@ h1 {
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    width: 369px;
+    width: 100%;
+    max-width: 369px;
     margin-top: 15px;
     position: relative;
 }
@@ -90,7 +95,8 @@ h1 {
     background: var(--primary-color);
     border-radius: var(--border-radius);
     border: 2px solid var(--accent-color-1);
-    width: 320px;
+    width: 100%;
+    max-width: 320px;
 }
 
 #password:focus {
@@ -104,8 +110,10 @@ input[type="text"] {
     padding: 14px 0 10px 0;
     border-radius: var(--border-radius);
     width: 100%;
+    max-width: 100%;
     text-align: center;
     font-size: 1rem;
+    box-sizing: border-box;
 }
 
 button {
@@ -124,7 +132,8 @@ button {
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     text-align: center;
-    width: 320px;
+    width: 100%;
+    max-width: 320px;
 }
 
 #multipw {
@@ -204,18 +213,20 @@ button:hover {
 }
 
 #copypwd {
-
+ 
     position: absolute !important;
     top: -10.9px !important;
     height: 18px !important;
     font-family: monospace !important;
     font-size: 10px;
-    width: 373px;
+    width: 100%;
+    max-width: 373px;
     border-radius: 6px 6px 0 0 !important;
     background-color: var(--accent-color-1) !important;
     text-align: end !important;
     padding-right: 6px !important;
     letter-spacing: 1.4px;
+    box-sizing: border-box;
 }
 
 #copypwd:hover {
@@ -282,11 +293,10 @@ button:hover {
 footer {
     width: 100%;
     text-align: center;
-    margin-bottom: 13px;
+    margin: 20px 0;
     font-size: 13px;
     color: var(--text-color);
-    position: absolute;
-    bottom: 0%;
+    position: relative;
 }
 
 footer p {
@@ -306,26 +316,31 @@ footer a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 320px;
+    width: 100%;
+    max-width: 320px;
     height: 51.5px;
 }
 
 #customSeparator,
 #customLanguage {
-    width: 111px;
+    width: 100%;
+    max-width: 111px;
     height: 15.5px;
+    box-sizing: border-box;
 }
 
 #separator,
 #maxWordLength,
 #languageSelect {
-    width: 116px;
+    width: 100%;
+    max-width: 116px;
     height: 41.5px;
     border-radius: var(--border-radius);
     background: #41436A;
     color: white;
     border: 2px solid var(--accent-color-1);
     padding: 3px;
+    box-sizing: border-box;
 }
 
 .infotext-wrapper {
@@ -463,34 +478,42 @@ footer a:hover {
 
 /* Extra small devices (phones, 380px and down) */
 @media only screen and (max-width: 380px) {
-    html {
-        overflow-x: hidden;
-        overflow-y: visible;
+    .container {
+        padding: 10px;
+        margin-bottom: 60px;
     }
 
     #checkbox-wrapper {
-        height: 36.5px;
+        height: auto;
+        min-height: 36.5px;
         font-size: 14px;
+        flex-direction: column;
+        gap: 5px;
+        align-items: flex-start;
     }
 
     #wordCountContainer, #sliderContainer {
         font-size: 14px;
-
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
     }
 
     #header1 {
         margin-bottom: 14px;
-        font-size: 30px;
+        font-size: 24px;
     }
 
     #customSeparator, #customLanguage {
-        height: 2.5px;
-        font-size: 11px;
+        height: auto;
+        font-size: 14px;
+        width: 100%;
     }
 
     #separator, #maxWordLength, #languageSelect {
-        height: 30px;
-        font-size: 11px;
+        height: auto;
+        font-size: 14px;
+        width: 100%;
     }
 
     .infotext-wrapper {
@@ -499,78 +522,93 @@ footer a:hover {
 
     .password-container {
         margin-top: 25px;
-        width: 334px;
+        width: 100%;
     }
 
     #copypwd {
-        width: 338px;
+        width: 100%;
+        font-size: 9px;
     }
 
     .buttonwrapper {
         margin-top: 22px;
+        width: 100%;
+    }
+
+    .button {
+        width: 100%;
     }
 
     footer {
-        padding-bottom: 13px;
-        font-size: 13px;
-        color: var(--text-color);
-        position: fixed;
-        bottom: 0%;
-        background-color: var(--background-color);
+        padding: 10px;
+        font-size: 12px;
+        margin-top: auto;
+    }
+
+    .parent {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(5, auto);
+        gap: 5px;
+    }
+
+    .multipwcp0, .multipwcp1, .multipwcp2, .multipwcp3, .multipwcp4 {
+        grid-column: 1 / -1;
+        border-radius: 0 0 8px 8px !important;
+        margin: 0;
     }
 }
 
 /* Small devices (phones, 430px-600px) */
 @media only screen and (min-width: 430px) and (max-width: 600px) {
-    html {
-        overflow-x: hidden;
+    .container {
+        max-width: 350px;
+        padding: 15px;
     }
 
-    #passwordOptions {
-        width: 350px;
-        margin-top: 53px;
-    }
-
-    #passphraseOptions {
-        width: 350px;
-        margin-top: 127px;
+    #passwordOptions, #passphraseOptions {
+        width: 100%;
     }
 
     #checkbox-wrapper {
-        height: 36.5px;
+        height: auto;
+        min-height: 36.5px;
         font-size: 16px;
-        width: 350px;
+        width: 100%;
     }
 
     #wordCountContainer, #sliderContainer {
         font-size: 16px;
-
+        width: 100%;
     }
 
     #header1 {
-        margin-bottom: 0;
-        position: fixed;
-        top: 0%;
-        font-size: 38px;
+        margin-bottom: 10px;
+        position: relative;
+        font-size: 32px;
     }
 
     #customSeparator, #customLanguage {
-        height: 12.5px;
+        height: auto;
         font-size: 15px;
+        width: 100%;
+        max-width: 120px;
     }
 
     #separator, #maxWordLength, #languageSelect {
-        height: 30px;
+        height: auto;
         font-size: 16px;
+        width: 100%;
+        max-width: 120px;
     }
 
     .infotext-wrapper {
-        position: absolute;
-        bottom: 7%;
+        position: relative;
+        margin-top: 20px;
     }
 
     .buttonwrapper {
         margin-top: 30px;
+        width: 100%;
     }
 
     #infotext {
@@ -578,20 +616,23 @@ footer a:hover {
     }
 
     #password-container1 {
-        width: 350px;
+        width: 100%;
+        max-width: 350px;
     }
 
     .password-container {
         margin-top: 31px;
-        width: 356px;
+        width: 100%;
     }
 
     #copypwd {
-        width: 360px;
+        width: 100%;
+        max-width: 360px;
     }
 
     .parent {
-        width: 350px;
+        width: 100%;
+        max-width: 350px;
     }
 
     #multipw {
@@ -605,20 +646,47 @@ footer a:hover {
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
+    .container {
+        max-width: 500px;
+        padding: 20px;
+    }
 
+    #checkbox-wrapper {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .parent {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .password-container {
+        max-width: 400px;
+    }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
+    .container {
+        max-width: 600px;
+    }
 
+    #header1 {
+        font-size: 36px;
+    }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-
+    .container {
+        max-width: 700px;
+    }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
-
+    .container {
+        max-width: 800px;
+    }
 }
