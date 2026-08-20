@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pwgen-cache-v1';
+const CACHE_NAME = 'pwgen-cache-v3';
 const urlsToCache = [
   './',                     
   './static/styles.css',    
@@ -7,6 +7,7 @@ const urlsToCache = [
 ];
 
 self.addEventListener('install', (event) => {
+  self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then((cache) => {
@@ -28,7 +29,7 @@ self.addEventListener('activate', (event) => {
           }
         })
       );
-    })
+    }).then(() => self.clients.claim())
   );
 });
 
